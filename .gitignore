@@ -1,0 +1,37 @@
+# Python virtual environments
+venv/
+backend/venv/
+training/venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Node
+node_modules/
+
+# Build
+dist/
+build/
+
+# Models & checkpoints
+models/
+checkpoints/
+
+# Datasets
+datasets/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
