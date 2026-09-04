@@ -4,12 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import toast from "react-hot-toast";
-
+import { useAuth } from "../../../context/AuthContext";
 
 export default function Signup() {
 
     const navigate = useNavigate();
-
+    const { login } = useAuth();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -39,14 +39,13 @@ export default function Signup() {
         }
 
 
-        toast.success("Account created successfully 🎉");
+       login(name, email);
 
+toast.success("Account created successfully 🎉");
 
-        setTimeout(() => {
-
-            navigate("/dashboard");
-
-        },1000);
+setTimeout(() => {
+    navigate("/dashboard");
+}, 1000);
 
     };
 

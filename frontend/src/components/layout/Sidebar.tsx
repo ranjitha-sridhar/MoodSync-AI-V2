@@ -10,105 +10,60 @@ import {
     FaSignOutAlt
 } from "react-icons/fa";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
+export default function Sidebar() {
+    const navigate = useNavigate();
+    const { logout } = useAuth();
 
-export default function Sidebar(){
-
+    const handleLogout = () => {
+        logout();
+        navigate("/login");
+    };
 
     return (
-
         <aside className="sidebar">
-
-
             <h2 className="logo">
-
-                MoodSync
-                <span>
-                    AI
-                </span>
-
+                MoodSync<span>AI</span>
             </h2>
 
-
-
             <nav>
-
-
                 <NavLink to="/dashboard">
-
-                    <FaHome/>
-
+                    <FaHome />
                     Dashboard
-
                 </NavLink>
-
-
 
                 <NavLink to="/detection">
-
-                    <FaCamera/>
-
+                    <FaCamera />
                     Detect Mood
-
                 </NavLink>
-
-
 
                 <NavLink to="/analytics">
-
-                    <FaChartLine/>
-
+                    <FaChartLine />
                     Analytics
-
                 </NavLink>
-
-
 
                 <NavLink to="/music">
-
-                    <FaMusic/>
-
+                    <FaMusic />
                     Music
-
                 </NavLink>
-
-
 
                 <NavLink to="/profile">
-
-                    <FaUser/>
-
+                    <FaUser />
                     Profile
-
                 </NavLink>
-
-
 
                 <NavLink to="/settings">
-
-                    <FaCog/>
-
+                    <FaCog />
                     Settings
-
                 </NavLink>
-
-
             </nav>
 
-
-
-            <button className="logout">
-
-                <FaSignOutAlt/>
-
+            <button className="logout" onClick={handleLogout}>
+                <FaSignOutAlt />
                 Logout
-
             </button>
-
-
         </aside>
-
     );
-
 }

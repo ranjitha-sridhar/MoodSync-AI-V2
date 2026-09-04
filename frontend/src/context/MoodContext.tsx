@@ -1,9 +1,10 @@
 import {
     createContext,
     useContext,
-    useState,
-    ReactNode
+    useState
 } from "react";
+
+import type { ReactNode } from "react";
 
 interface MoodContextType {
     emotion: string;

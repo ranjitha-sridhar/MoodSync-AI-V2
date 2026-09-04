@@ -1,6 +1,5 @@
 import "./Dashboard.css";
 
-import { useState } from "react";
 
 import Sidebar from "../../components/layout/Sidebar";
 
@@ -13,7 +12,8 @@ import EmotionChart from "../../components/analytics/EmotionChart";
 export default function Dashboard() {
 
 
-    const [userName] = useState("Ranjitha");
+    const userName =
+    localStorage.getItem("userName") || "User";
 
 
     const hour = new Date().getHours();

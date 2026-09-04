@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import toast from "react-hot-toast";
-
+import { useAuth } from "../../../context/AuthContext";
 
 export default function Login() {
 
@@ -13,7 +13,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
+    const { login } = useAuth();
     const handleLogin = (e: React.FormEvent) => {
 
         e.preventDefault();
@@ -27,14 +27,13 @@ export default function Login() {
         }
 
 
-        toast.success("Login successful 🚀");
+        login("Ranjitha", email);
 
+toast.success("Login successful 🚀");
 
-        setTimeout(() => {
-
-            navigate("/dashboard");
-
-        }, 1000);
+setTimeout(() => {
+    navigate("/dashboard");
+}, 1000);
 
     };
 

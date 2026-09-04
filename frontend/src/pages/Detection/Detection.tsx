@@ -1,158 +1,145 @@
 import "./Detection.css";
 
 import Webcam from "react-webcam";
-
 import { useRef, useState } from "react";
 
 import API from "../../services/api";
 
+interface Song {
+    title: string;
+    artist: string;
+    videoId: string;
+}
 
 export default function Detection() {
 
     const webcamRef = useRef<Webcam>(null);
 
     const [emotion, setEmotion] = useState("");
-
     const [confidence, setConfidence] = useState(0);
+    const [song, setSong] = useState<Song | null>(null);
 
-    const [song, setSong] = useState<any>(null);
-
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const captureImage = async () => {
 
-        const imageSrc =
-            webcamRef.current?.getScreenshot();
-
-
-        if (!imageSrc)
-            return;
-
-
-        const blob = await fetch(imageSrc)
-            .then(res => res.blob());
-
-
-        const formData = new FormData();
-
-
-        formData.append(
-            "file",
-            blob,
-            "capture.jpg"
-        );
-
+        setLoading(true);
+        setError("");
 
         try {
 
-            // -----------------------------
-            // EMOTION DETECTION
-            // -----------------------------
+            const imageSrc = webcamRef.current?.getScreenshot();
 
-            const response = await API.post(
-                "/emotion/detect",
-                formData,
-                {
-                    headers: {
-                        "Content-Type":
-                            "multipart/form-data"
-                    }
-                }
+            if (!imageSrc) {
+                setError("Unable to capture image. Please allow camera access.");
+                return;
+            }
+
+            const response = await fetch(imageSrc);
+            const blob = await response.blob();
+
+            const formData = new FormData();
+
+            formData.append(
+                "file",
+                blob,
+                "capture.jpg"
             );
 
+            // =========================
+            // EMOTION DETECTION
+            // =========================
+
+            const emotionResponse = await API.post(
+                "/emotion/detect",
+                formData
+            );
 
             const detectedEmotion =
-                response.data.emotion;
+                emotionResponse.data.emotion;
 
+            const detectedConfidence =
+                emotionResponse.data.confidence;
 
-            setEmotion(
-                detectedEmotion
-            );
-
-
-            setConfidence(
-                response.data.confidence
-            );
-
+            setEmotion(detectedEmotion);
+            setConfidence(detectedConfidence);
 
             localStorage.setItem(
                 "detectedEmotion",
                 detectedEmotion
             );
 
+            localStorage.setItem(
+                "confidence",
+                String(detectedConfidence)
+            );
 
-            // -----------------------------
+            // =========================
             // MUSIC RECOMMENDATION
-            // -----------------------------
+            // =========================
 
-            const musicResponse =
-                await API.get(
-                    `/music/recommend/${detectedEmotion}`
-                );
-
-
-            console.log(
-                "Recommended song:",
-                musicResponse.data
+            const musicResponse = await API.get(
+                `/music/recommend/${detectedEmotion}`
             );
 
+            setSong(musicResponse.data);
 
-            setSong(
-                musicResponse.data
+        } catch (err) {
+
+            console.error("MoodSync detection error:", err);
+
+            setError(
+                "Could not detect your emotion. Make sure the backend is running."
             );
 
+        } finally {
 
-        } catch (error) {
-
-            console.log(
-                "MoodSync error:",
-                error
-            );
+            setLoading(false);
 
         }
-
     };
-
 
     return (
 
         <div className="detection-page">
 
-
             <h1>
                 Emotion Detection 🎭
             </h1>
-
 
             <p>
                 Let AI understand your current mood
             </p>
 
-
             <div className="camera-card">
 
-
                 <Webcam
-
                     ref={webcamRef}
-
+                    audio={false}
                     screenshotFormat="image/jpeg"
-
+                    videoConstraints={{
+                        facingMode: "user"
+                    }}
                     className="camera"
-
                 />
-
 
                 <button
                     onClick={captureImage}
+                    disabled={loading}
                 >
-
-                    Analyze Mood
-
+                    {loading
+                        ? "Analyzing..."
+                        : "Analyze Mood"}
                 </button>
 
+                {error && (
+                    <div className="error-message">
+                        {error}
+                    </div>
+                )}
 
-                {
-                    emotion &&
+                {emotion && (
 
                     <div className="result">
 
@@ -166,11 +153,9 @@ export default function Detection() {
 
                     </div>
 
-                }
+                )}
 
-
-                {
-                    song &&
+                {song && (
 
                     <div className="music-result">
 
@@ -178,16 +163,13 @@ export default function Detection() {
                             🎵 Recommended Song
                         </h2>
 
-
                         <h3>
                             {song.title}
                         </h3>
 
-
                         <p>
                             {song.artist}
                         </p>
-
 
                         <iframe
                             width="100%"
@@ -201,13 +183,10 @@ export default function Detection() {
 
                     </div>
 
-                }
-
+                )}
 
             </div>
 
         </div>
-
     );
-
 }
