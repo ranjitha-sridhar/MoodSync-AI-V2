@@ -1,0 +1,59 @@
+.chart-card {
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:blur(15px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+    padding:30px;
+
+
+    border-radius:25px;
+
+
+    color:white;
+
+
+}
+
+
+
+.chart-placeholder {
+
+
+    height:280px;
+
+
+    margin-top:25px;
+
+
+    border-radius:20px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+    color:#aaa9c7;
+
+
+}

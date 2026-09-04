@@ -1,17 +1,134 @@
+import "./Dashboard.css";
+
+import { useState } from "react";
+
+import Sidebar from "../../components/layout/Sidebar";
+
+import MoodCard from "../../components/emotion/MoodCard";
+import MusicCard from "../../components/recommendation/MusicCard";
+import EmotionChart from "../../components/analytics/EmotionChart";
+
+
+
 export default function Dashboard() {
 
-    return(
 
-        <div className="min-h-screen flex items-center justify-center bg-slate-950">
+    const [userName] = useState("Ranjitha");
 
-            <h1 className="text-5xl text-white">
 
-                Dashboard
+    const hour = new Date().getHours();
 
-            </h1>
+
+    const greeting =
+
+        hour < 12
+
+        ? "Good Morning"
+
+        : hour < 18
+
+        ? "Good Afternoon"
+
+        : "Good Evening";
+
+
+
+    return (
+
+
+        <div className="dashboard-wrapper">
+
+
+            <Sidebar />
+
+
+
+            <main className="dashboard">
+
+
+
+                <header className="dashboard-header">
+
+
+
+                    <div>
+
+
+                        <h1>
+
+                            {greeting}, {userName} 👋
+
+                        </h1>
+
+
+
+                        <p>
+
+                            How are you feeling today?
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div className="profile">
+
+
+                        RS
+
+
+                    </div>
+
+
+
+                </header>
+
+
+
+
+
+                <section className="dashboard-grid">
+
+
+
+                    <MoodCard />
+
+
+
+                    <MusicCard />
+
+
+
+                </section>
+
+
+
+
+
+                <section className="chart-section">
+
+
+
+                    <EmotionChart />
+
+
+
+                </section>
+
+
+
+            </main>
+
+
 
         </div>
 
-    )
+
+    );
 
 }

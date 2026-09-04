@@ -34,4 +34,8 @@ datasets/
 
 # OS files
 .DS_Store
-Thumbs.db
+Thumbs.dbbackend/ml/dataset/
+**/.ipynb_checkpoints/
+desktop.ini
+
+backend/ml/dataset/

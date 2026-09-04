@@ -1,0 +1,100 @@
+.detection-page{
+
+
+    min-height:100vh;
+
+
+    padding:40px;
+
+
+    margin-left:260px;
+
+
+    color:white;
+
+
+    background:#080811;
+
+
+}
+
+
+
+.camera-card{
+
+
+    margin-top:40px;
+
+
+    width:500px;
+
+
+    padding:25px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    rgba(255,255,255,0.06);
+
+
+    backdrop-filter:blur(20px);
+
+
+}
+
+
+
+.camera{
+
+
+    width:100%;
+
+
+    border-radius:15px;
+
+
+}
+
+
+
+.camera-card button{
+
+
+    width:100%;
+
+
+    margin-top:20px;
+
+
+    padding:14px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    cursor:pointer;
+
+
+    color:white;
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #8b5cf6,
+
+        #2563eb
+
+    );
+
+
+}

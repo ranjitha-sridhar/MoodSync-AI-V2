@@ -1,0 +1,91 @@
+.music-card {
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #1db954,
+
+        #0f5132
+
+    );
+
+
+    padding:30px;
+
+
+    border-radius:25px;
+
+
+    color:white;
+
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.4);
+
+
+}
+
+
+
+.music-card h2 {
+
+    margin-bottom:20px;
+
+}
+
+
+
+.song {
+
+
+    background:
+
+    rgba(255,255,255,.18);
+
+
+    padding:18px;
+
+
+    border-radius:15px;
+
+
+    margin:25px 0;
+
+
+}
+
+
+
+.music-card button {
+
+
+    width:100%;
+
+
+    padding:14px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    background:white;
+
+
+    color:#0f5132;
+
+
+    font-weight:700;
+
+
+    cursor:pointer;
+
+
+}

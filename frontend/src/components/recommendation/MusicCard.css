@@ -1,0 +1,158 @@
+.music-card {
+
+
+    padding:25px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    rgba(255,255,255,0.06);
+
+
+    border:
+
+    1px solid rgba(255,255,255,0.12);
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+    color:white;
+
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,0.35);
+
+
+    transition:0.3s ease;
+
+
+}
+
+
+
+.music-card:hover {
+
+
+    transform:translateY(-5px);
+
+
+    border-color:
+
+    rgba(59,130,246,0.5);
+
+
+}
+
+
+
+.music-header {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+}
+
+
+
+.spotify-icon {
+
+
+    color:#1db954;
+
+
+    font-size:32px;
+
+
+}
+
+
+
+.song-info {
+
+
+    margin:25px 0;
+
+
+}
+
+
+
+.song-info p {
+
+
+    color:#a1a1aa;
+
+
+}
+
+
+
+.song-info span {
+
+
+    color:#a1a1aa;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+.music-card button {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+    padding:12px 22px;
+
+
+    border-radius:30px;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+    color:white;
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #8b5cf6,
+
+        #2563eb
+
+    );
+
+
+}
