@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Eye, EyeOff, Lock, Mail, User, Sparkles, ArrowRight, ShieldCheck } from "lucide-react";
+import { Eye, EyeOff, Lock, Mail, User, Sparkles, ArrowRight } from "lucide-react";
 import toast from "react-hot-toast";
 import { useAuth } from "../../../context/AuthContext";
 

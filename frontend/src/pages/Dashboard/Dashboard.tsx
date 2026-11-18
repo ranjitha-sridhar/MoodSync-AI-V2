@@ -5,7 +5,6 @@ import {
     Sparkles,
     Camera,
     TrendingUp,
-    Calendar,
     Music2,
     HeartHandshake,
     ArrowRight,
@@ -42,7 +41,7 @@ export default function Dashboard() {
     const { user } = useAuth();
     const { emotion, confidence, refreshCounter } = useMood();
 
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
     const [recentRecords, setRecentRecords] = useState<HistoryItem[]>([]);
     const [analytics, setAnalytics] = useState<AnalyticsOverview>({
         total_detections: 0,

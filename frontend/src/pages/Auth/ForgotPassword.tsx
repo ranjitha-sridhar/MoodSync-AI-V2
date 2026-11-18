@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Lock, KeyRound, ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { Mail, Lock, KeyRound, ArrowLeft} from "lucide-react";
 import toast from "react-hot-toast";
 import API from "../../services/api";
 

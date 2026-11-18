@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
     Menu,
     X,
-    Camera,
-    Sparkles,
-    ShieldCheck,
-    User,
-    LogOut
+    Camera
 } from "lucide-react";
 import Sidebar from "./Sidebar";
 import { useAuth } from "../../context/AuthContext";
@@ -21,7 +17,7 @@ interface LayoutProps {
 
 export default function DashboardLayout({ children, title, subtitle, actions }: LayoutProps) {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const { user, logout } = useAuth();
+    const { user } = useAuth();
     const navigate = useNavigate();
 
     return (

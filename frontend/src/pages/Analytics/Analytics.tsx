@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import {
     BarChart3,
-    TrendingUp,
-    Calendar,
-    PieChart as PieIcon,
-    Activity,
-    AlertCircle,
     Info,
     ArrowUpRight,
     ArrowDownRight

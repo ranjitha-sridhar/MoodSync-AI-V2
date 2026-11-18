@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
     User,
     Mail,
@@ -10,8 +10,6 @@ import {
     Save,
     Camera,
     CheckCircle2,
-    AlertTriangle,
-    Sparkles,
     ShieldCheck
 } from "lucide-react";
 import toast from "react-hot-toast";

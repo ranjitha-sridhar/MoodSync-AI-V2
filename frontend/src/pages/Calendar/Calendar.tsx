@@ -5,9 +5,7 @@ import {
     ChevronRight,
     Clock,
     Smile,
-    Music,
-    Info,
-    Sparkles
+    Music
 } from "lucide-react";
 import toast from "react-hot-toast";
 import DashboardLayout from "../../components/layout/DashboardLayout";
@@ -36,7 +34,7 @@ const EMOTION_DOT_COLORS: { [key: string]: string } = {
 export default function CalendarPage() {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [allRecords, setAllRecords] = useState<EmotionRecord[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
     const [selectedDateRecords, setSelectedDateRecords] = useState<EmotionRecord[]>([]);
     const [selectedDateString, setSelectedDateString] = useState<string>("");
 

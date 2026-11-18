@@ -1,18 +1,15 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef} from "react";
 import Webcam from "react-webcam";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
     Camera,
     Upload,
     Sparkles,
-    AlertCircle,
     CheckCircle2,
     Save,
     RotateCcw,
     Music,
     Info,
-    ExternalLink,
-    Play
 } from "lucide-react";
 import toast from "react-hot-toast";
 import DashboardLayout from "../../components/layout/DashboardLayout";
@@ -97,7 +94,6 @@ export default function Detection() {
     // Analyze either webcam frame or uploaded file
     const handleAnalyze = async () => {
         let blobToSend: Blob | null = null;
-        let detectionMethod = mode;
 
         if (mode === "webcam") {
             const screenshot = webcamRef.current?.getScreenshot();

@@ -3,11 +3,8 @@ import {
     Music2,
     Play,
     Heart,
-    Bookmark,
-    Sparkles,
     Headphones,
     FolderHeart,
-    Radio,
     Trash2,
     ExternalLink
 } from "lucide-react";
@@ -47,7 +44,7 @@ export default function MusicStudio() {
     const [energyProfile, setEnergyProfile] = useState<string>("");
     const [suggestedGenres, setSuggestedGenres] = useState<string[]>([]);
     const [viewMode, setViewMode] = useState<"recommendations" | "saved">("recommendations");
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
 
     const fetchRecommendations = async (emo: string) => {
         setLoading(true);
@@ -82,7 +79,7 @@ export default function MusicStudio() {
 
     const handleSaveSong = async (song: SongItem) => {
         try {
-            const res = await API.post("/api/music/saved", {
+                await API.post("/api/music/saved", {
                 title: song.title,
                 artist: song.artist,
                 video_id: song.videoId,

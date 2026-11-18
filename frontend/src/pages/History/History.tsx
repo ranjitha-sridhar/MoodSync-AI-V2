@@ -2,17 +2,12 @@ import { useState, useEffect } from "react";
 import {
     History as HistoryIcon,
     Search,
-    Filter,
     Download,
     Trash2,
-    Calendar,
     ChevronLeft,
     ChevronRight,
-    ExternalLink,
-    AlertCircle,
     Info,
-    Music,
-    Smile
+    Music
 } from "lucide-react";
 import toast from "react-hot-toast";
 import DashboardLayout from "../../components/layout/DashboardLayout";

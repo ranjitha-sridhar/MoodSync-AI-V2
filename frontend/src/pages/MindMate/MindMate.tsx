@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion} from "framer-motion";
 import {
-    HeartHandshake,
     Wind,
     BookOpen,
     Sparkles,
-    Smile,
     Info,
     Plus,
     Trash2,
     Play,
     Pause,
-    RotateCcw,
-    CheckCircle2
+    RotateCcw
 } from "lucide-react";
 import toast from "react-hot-toast";
 import DashboardLayout from "../../components/layout/DashboardLayout";
@@ -44,7 +41,7 @@ export default function MindMate() {
     const [tab, setTab] = useState<"breathing" | "journal" | "guidance">("breathing");
     const [guidance, setGuidance] = useState<WellnessGuidance | null>(null);
     const [journals, setJournals] = useState<JournalEntry[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
 
     // New Journal form state
     const [journalTitle, setJournalTitle] = useState("");
