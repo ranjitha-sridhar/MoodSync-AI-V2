@@ -2,29 +2,37 @@
 venv/
 backend/venv/
 training/venv/
+.venv/
 
 # Python
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.pyc
 
 # Environment variables
 .env
+!.env.example
 
 # Node
 node_modules/
 
-# Build
+# Build outputs
 dist/
 build/
 
-# Models & checkpoints
-models/
+# Models & checkpoints (keep emotion_model.keras in git)
 checkpoints/
 
 # Datasets
 datasets/
+backend/ml/dataset/
+
+# SQLite database (local dev only)
+backend/moodsync.db
+*.db
+*.sqlite
 
 # VS Code
 .vscode/
@@ -34,8 +42,20 @@ datasets/
 
 # OS files
 .DS_Store
-Thumbs.dbbackend/ml/dataset/
-**/.ipynb_checkpoints/
+Thumbs.db
 desktop.ini
 
-backend/ml/dataset/
+# Jupyter
+**/.ipynb_checkpoints/
+
+# pytest cache
+.pytest_cache/
+backend/.pytest_cache/
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# MyPy
+.mypy_cache/
