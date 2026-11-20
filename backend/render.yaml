@@ -18,8 +18,7 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: CORS_ORIGINS
-        value: '["https://mood-sync-ai-v2-ranjitha-s.vercel.app","https://mood-sync-ai-v2-git-feature-moodsync-upgrade-ranjitha-s.vercel.app","https://mood-sync-ai-v2-bvp1za8jq-ranjitha-s.vercel.app","https://moodsync-ai.vercel.app"]'
-
+        value: '["https://mood-sync-ai-v2-ranjitha-s.vercel.app","https://mood-sync-ai-v2-git-feature-moodsync-upgrade-ranjitha-s.vercel.app","https://mood-sync-ai-v2-bvp1za8jq-ranjitha-s.vercel.app","https://moodsync-ai.vercel.app","https://mood-sync-ai-v2-aoofar6ji-ranjitha-s.vercel.app"]'
 databases:
   - name: moodsync-db
     plan: free
